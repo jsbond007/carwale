@@ -30,8 +30,8 @@ namespace Carwale.Services.CarService
 
         public async Task<ApiResponse<IEnumerable<CarDto>>> GetAll(int? status)
         {
-            var cars = await this._carRepository.GetAll(status,this.User.TenantUId);
-            return ApiResponse<IEnumerable<CarDto>>.SuccessResponse(cars,cars.Count());
+            var cars = await this._carRepository.GetAll(status, this.User.TenantUId);
+            return ApiResponse<IEnumerable<CarDto>>.SuccessResponse(cars, cars.Count());
         }
 
         public async Task<ApiResponse<CarDto>> GetDetailByUId(string uid)
@@ -40,17 +40,17 @@ namespace Carwale.Services.CarService
             return ApiResponse<CarDto>.SuccessResponse(result);
         }
 
-		/// <summary>
-		/// Creates new Car and returns the ApiResponse with UId of newly created Car
-		/// </summary>
-		/// <param name="car">All the call properties</param>
-		/// <returns>if successful it will return the ApiResponse with UId of newly created Car. If fails then it returns BaseResponse with errors</returns>
-		public async Task<BaseResponse> Create(CarCreateRequest car)
+        /// <summary>
+        /// Creates new Car and returns the ApiResponse with UId of newly created Car
+        /// </summary>
+        /// <param name="car">All the call properties</param>
+        /// <returns>if successful it will return the ApiResponse with UId of newly created Car. If fails then it returns BaseResponse with errors</returns>
+        public async Task<BaseResponse> Create(CarCreateRequest car)
         {
-			ApiResponse<string> response = new ();
+            ApiResponse<string> response = new();
 
             /*Map to carEntity and lets modify all necessary properties */
-			var carEntity = this.Map<Car>(car);
+            var carEntity = this.Map<Car>(car);
 
             carEntity.CreatedBy = this.User.UserName;
             carEntity.TenantId = this.User.TenantId;
@@ -60,7 +60,7 @@ namespace Carwale.Services.CarService
 
             /*if error then set Response Errors to modelResponse Errors*/
             if (!modelResponse.HasError)
-            {                
+            {
                 carEntity.ModelId = modelResponse.Data.Id;
 
                 try
@@ -78,7 +78,7 @@ namespace Carwale.Services.CarService
             else
             {
                 response.Errors = modelResponse.Errors;
-			}
+            }
 
             return response;
         }
@@ -106,29 +106,29 @@ namespace Carwale.Services.CarService
             return response;
         }
 
-		/// <summary>
-		/// Update the Car in the database if no errors
-		/// </summary>
-		/// <param name="car">Car properties to be updated</param>
-		/// <returns>if successful it will return the ApiResponse with UId of updated Car. If fails then it returns BaseResponse with errors</returns>
-		public async Task<BaseResponse> Update(CarUpdateRequest car)
+        /// <summary>
+        /// Update the Car in the database if no errors
+        /// </summary>
+        /// <param name="car">Car properties to be updated</param>
+        /// <returns>if successful it will return the ApiResponse with UId of updated Car. If fails then it returns BaseResponse with errors</returns>
+        public async Task<BaseResponse> Update(CarUpdateRequest car)
         {
-			ApiResponse<string> response = new();
+            ApiResponse<string> response = new();
 
             /* Check if Car existing with given UId and User has access to this Uid by validating TenantUId*/
-			var existingCar = await this._carRepository.GetEntity(car.UId,this.User.TenantUId);
-			if (existingCar == null)
+            var existingCar = await this._carRepository.GetEntity(car.UId, this.User.TenantUId);
+            if (existingCar == null)
             {
                 response.HasError = true;
                 response.Errors.Add(new ValidationError("Car not found!", 400));
             }
             else
             {
-				/*Returns model or Error if model is not found for given modelUid*/
-				var modelResponse = await this.GetModel(car.ModelUId);
+                /*Returns model or Error if model is not found for given modelUid*/
+                var modelResponse = await this.GetModel(car.ModelUId);
 
-				/*if error then set Response Errors to modelResponse Errors*/
-				if (!modelResponse.HasError)
+                /*if error then set Response Errors to modelResponse Errors*/
+                if (!modelResponse.HasError)
                 {
                     try
                     {
@@ -138,10 +138,10 @@ namespace Carwale.Services.CarService
                         existingCar.CurrentValue = car.CurrentValue;
                         existingCar.RegistrationNumber = car.RegistrationNumber;
                         existingCar.Notes = car.Notes;
-                        existingCar.Year = car.Year;                        
-						existingCar.ModifiedBy = this.User.UserName;
+                        existingCar.Year = car.Year;
+                        existingCar.ModifiedBy = this.User.UserName;
                         existingCar.ModifiedDateTime = DateTime.UtcNow;
-						await this._carRepository.Update(existingCar);
+                        await this._carRepository.Update(existingCar);
 
                         /*set response with Data as UId and HasError=false*/
                         response.Success(car.UId);
@@ -153,7 +153,7 @@ namespace Carwale.Services.CarService
                 }
                 else
                 {
-                    response.Errors = modelResponse.Errors;                    
+                    response.Errors = modelResponse.Errors;
                 }
             }
 
@@ -170,13 +170,13 @@ namespace Carwale.Services.CarService
             ApiResponse<int> response = new();
 
             var existingCar = await this._carRepository.GetEntity(uId, this.User.TenantUId);
-			if (existingCar == null)
+            if (existingCar == null)
             {
                 response.HasError = true;
                 response.Errors.Add(new ValidationError("Car not found!", 400));
             }
             else
-            {             
+            {
                 await this._carRepository.Delete(existingCar.Id);
                 response.Data = 1;
                 response.RecordAffected = 1;
@@ -184,6 +184,6 @@ namespace Carwale.Services.CarService
 
             return response;
         }
-       
+
     }
 }
