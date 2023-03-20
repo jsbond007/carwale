@@ -1,0 +1,115 @@
+/** @format */
+
+.car {
+  min-height: 150px;
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 20px;
+  position: relative;
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0.2, 0.1), 0 0px 5px 0 rgba(0, 0, 0, 0);
+  flex: 1;
+  min-width: 25%;
+  max-width: 31%;
+}
+.car:hover {
+  background-color: #8080801a;
+}
+.car_container {
+  padding: 20px;
+  display: flex;
+}
+.image_div {
+  width: 190px;
+  position: relative;
+  text-decoration: none;
+  background-color: transparent;
+  > div {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.detail_div {
+  margin-left: 16px;
+  font-size: 20px;
+  flex-grow: 1;
+  position: relative;
+  > a {
+    color: #484848;
+    margin-bottom: 8px;
+    align-items: baseline;
+    display: flex;
+    text-decoration: none;
+    > h3 {
+      font-weight: 400;
+      font-size: 16px;
+      max-width: 75%;
+      padding-right: 8px;
+      margin: 0;
+    }
+  }
+}
+.safety_div {
+  white-space: nowrap;
+  color: #6f6f6f;
+  font-size: 11px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  display: flex;
+}
+.dash_space {
+  color: #e1e1e1;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.price_div {
+  text-align: start;
+  > a {
+    text-decoration: none;
+    padding-bottom: 12px;
+    margin-right: 8px;
+    font-weight: 600;
+    color: #484848;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 18px;
+  }
+}
+.price_div span {
+  font-size: 15px;
+  font-weight: 100;
+}
+.buy_btn {
+  text-align: start;
+  > button {
+    background-color: #b3b3ff;
+    padding: 6px 40px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+.edit_delete_div {
+  position: absolute;
+  bottom: 0;
+  right: 20px;
+  display: flex;
+  column-gap: 11px;
+}
+.edit_delete_div img {
+  width: 15px;
+  height: 17px;
+  cursor: pointer;
+}
+.makename_div {
+  font-size: 22px;
+  column-gap: 8px;
+  font-weight: bold;
+  display: flex;
+}
+.year_div {
+  text-align: left;
+}

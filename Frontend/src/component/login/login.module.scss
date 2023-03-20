@@ -1,0 +1,180 @@
+.login_area_div {
+    // column-gap: 99px;
+    display: flex;
+    background-color: #FFFFFF;
+//    height: 100vh;
+    box-shadow: rgb(0 0 0 / 16%) 3px 8px 15px;
+    margin: 0px auto;
+    justify-content: flex-start;
+    border-radius: 5px;
+    
+}
+.left_background_img{
+    width: 50%;
+    // display: grid;
+    // justify-content: flex-start;
+}
+.login_form_container{
+    width:27%;
+    text-align: left;
+    margin-left: 50px;
+}
+.login_form_input {
+    margin-top: 20vh;
+    padding: 0px 3% 2%;
+}
+
+.login_form_header {
+    justify-content: space-between;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.background_img_car div{
+    width:50%;
+}
+.login_form_header_1 {
+    font-family: Poppins;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.login_form_header_2 {
+    font-family: Poppins;
+    font-size: 200%;
+    color: rgb(71, 1, 55);
+    font-weight: 700;
+    margin: 0px 0px 1px 5px;
+}
+
+.forget_password_link {
+    font-size: 14px;
+    text-transform: capitalize;
+    width: 90%;
+    text-align: end;
+    display: inline-block;
+    color: rgb(123, 107, 225) !important;
+    font-weight: 400 !important;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login_button {
+    text-align: center;
+    margin-top: 8%;
+}
+
+.login_button button {
+    float: left;
+    margin-left: 17px;
+    border: none;
+    height: 37px;
+    width: 170px;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: snow;
+    background-color: #FF5668 !important;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 7px 16px 5px 17px;
+}
+
+.login_button button:hover {
+    background-color: rgb(71, 1, 55) !important;
+    // border-radius: 51px;
+    border: 1px solid rgb(71, 1, 55);
+    ;
+}
+
+.close_icon_div {
+    position: absolute;
+    width: -moz-fit-content;
+    top: 70px;
+    left: 89%;
+    color: rgb(71, 1, 55);
+}
+
+.close_icon_div:hover {
+    background: rgb(71, 1, 55);
+    color: snow;
+    border: 1px;
+    border-radius: 19px;
+    padding-top: 2px;
+}
+
+.text_field_div_2 Box {
+    position: relative;
+}
+
+.eye_icon_div {
+    position: absolute;
+    top: 16px;
+    left: 42%;
+}
+
+.signup_div {
+    text-align: start;
+    margin-top: 38px;
+}
+
+.signup_div a {
+    text-decoration: none;
+    color: rgb(71, 1, 55);
+}
+
+.signup_div a:hover {
+    color: rgb(38, 112, 38);
+}
+.login_form_header_first{
+    padding-bottom: 25px;
+    column-gap: 23.9px;
+    display: flex;
+    align-items: center;
+}
+.title_header{
+    font-weight: bold;
+    font-size: 68px;
+}
+.car_image img{
+    width: 90.63px;
+    height: 60.63px;
+    
+}
+.background_img_car{
+    height: 50vh;
+    display: flex;
+    // align-items: center;
+}
+.car1 img{
+    height: 100%;
+    width: -webkit-fill-available;
+    object-fit: cover;
+    // height: 715px;
+    // width: 572px;
+
+}
+.car2 img{
+    height: 100%;
+    width: -webkit-fill-available;
+    object-fit: cover;
+    // width: 460px;
+    // height:px;
+    
+}
+.car4{
+//   float: left;
+height: 49vh;
+    
+}
+.car4 img{
+    height: 100%;
+    width: -webkit-fill-available;
+    object-fit: cover;
+    // height: 280px;
+    // width: 572px;
+   
+}
+.height{
+    height:100%;
+}

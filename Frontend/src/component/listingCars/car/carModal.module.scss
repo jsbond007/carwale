@@ -1,0 +1,19 @@
+.btn {
+    width: 100px;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    column-gap: 20px;
+  }
+  
+  .saveBtn {
+    border: 1px solid !important;
+    padding: 6px 40px;
+  }
+ .cancelBtn{
+  color: red !important;
+ }
+  

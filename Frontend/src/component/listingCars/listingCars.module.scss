@@ -1,0 +1,42 @@
+.lisitng_container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.listing {
+    // display: flex;
+}
+
+.add_btn {
+    text-align: start;
+
+    >button {
+        background-color: #b3b3ff;
+        padding: 6px 20px;
+        border: none;
+        border-radius: 5px;
+        display: flex;
+
+        >div {
+            margin-top: 2px;
+        }
+    }
+}
+
+.add_btn_div {
+    position: absolute;
+    top: 20px;
+    right: -150px;
+}
+
+.car_display_div {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.add_btn_img {
+    width: 20px;
+    margin-left: 10px;
+}
