@@ -1,6 +1,6 @@
 const env = 'dev';
 
-const CarWaleApi = `https://localhost:7005`;
+const CarWaleApi = `http://localhost:5005`;
 
 const Environment = {
 

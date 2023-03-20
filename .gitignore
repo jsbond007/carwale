@@ -140,3 +140,6 @@ Release-UserMgmt/
 #Nuget Directory
 .nuget/
 packages/
+/Backend/cw-sqllite.db
+/Backend/cw-sqllite.db-shm
+/Backend/cw-sqllite.db-wal
