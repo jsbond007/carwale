@@ -15,15 +15,7 @@ namespace Carwale.UserIdentity
                 IsAuthenticated = _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
                 TenantId = int.Parse(GetClaimValue("TenantId"));
                 TenantUId = GetClaimValue("TenantUId");
-            }
-            else
-            {
-                TenantId = 1;
-                TenantUId = "GL3EL54OV8";
-                UserName = "muser1";
-                Name = "Manoj XBoss";
-            }
-
+            }            
         }
 
         public string GetClaimValue(string ClaimName)
