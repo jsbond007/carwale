@@ -54,12 +54,14 @@ namespace Carwale.Controllers
             return Ok(response);
         }
 
-        [HttpDelete]
+		[Uniform]
+		[HttpDelete]
 		[ProducesResponseType(typeof(ApiResponse<int>), 200)]
 		[ProducesResponseType(typeof(BaseResponse), 400)]
-		public async Task Delete(string uid)
-        {
-            await this._carService.Delete(uid);
-        }
-    }
+		public async Task<IActionResult> Delete(string uid)
+		{
+			var response = await this._carService.Delete(uid);
+			return Ok(response);
+		}
+	}
 }

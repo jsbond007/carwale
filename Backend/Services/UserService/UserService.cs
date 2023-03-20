@@ -27,6 +27,12 @@ namespace Carwale.Services.UserService
             _jwtService = jwtService;
         }
 
+        /// <summary>
+        /// Will check if username and password exists in the database and will return the JWT token if exists
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>Returns AuthenticateResponse if Successful with Token</returns>
         public async Task<BaseResponse> Authenticate(string username, string password)
         {
             var user = await _userRepository.Login(username, password);

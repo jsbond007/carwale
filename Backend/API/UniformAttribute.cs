@@ -4,6 +4,9 @@ using Carwale.Objects;
 
 namespace Carwale.API
 {
+    /// <summary>
+    /// If any action response has any errors then StatusCode will be returned 400, even if we are sending Ok Response from Controller Action
+    /// </summary>
     public class UniformAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)

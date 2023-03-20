@@ -9,8 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Carwale.API
-
 {
+    /// <summary>
+    /// Global level Error Handling Middleware, it will handle all kind of unhandled exception
+    /// and will wrap it in as BaseErrorResponse
+    /// </summary>
     public class ErrorHandlingMiddleware
     {
         private readonly RequestDelegate next;
@@ -47,6 +50,7 @@ namespace Carwale.API
 
         private static Task HandleExceptionAsync(HttpContext context, Exception ex)
         {
+            /* Returns Exception Message and Stacktrack if Unhandled exception occors*/
             string message = ex.Message + "\r\n" + ex.InnerException?.Message;
             BaseErrorResponse errorResult = new BaseErrorResponse() { HasError = true, Message = message, StackTrace = ex.StackTrace };
             return SendExceptionAsync(context, HttpStatusCode.InternalServerError, errorResult);

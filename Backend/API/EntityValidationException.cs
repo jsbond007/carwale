@@ -3,6 +3,9 @@ using Carwale.Objects;
 
 namespace Carwale.API
 {
+    /// <summary>
+    /// EntityValidationException is handled seperately at ErrorHandlingMiddleware and will return the exception as it is
+    /// </summary>
     public class EntityValidationException : Exception
     {
         public ApiResponse<string> ApiResponse { get; set; }

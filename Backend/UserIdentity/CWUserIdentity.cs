@@ -11,11 +11,12 @@ namespace Carwale.UserIdentity
             _httpContextAccessor = httpContextAccessor;
             if (_httpContextAccessor?.HttpContext?.User?.Identity?.IsAuthenticated == true)
             {
-                UserName = GetClaimValue("UserName");
+				Name = GetClaimValue("Name");
+				UserName = GetClaimValue("UserName");
                 IsAuthenticated = _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
                 TenantId = int.Parse(GetClaimValue("TenantId"));
                 TenantUId = GetClaimValue("TenantUId");
-            }            
+            }          
         }
 
         public string GetClaimValue(string ClaimName)

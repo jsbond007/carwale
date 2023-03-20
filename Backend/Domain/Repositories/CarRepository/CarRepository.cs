@@ -15,10 +15,10 @@ namespace Carwale.Domain.Repositories.CarRepository
         }
 
 		/// <summary>
-		/// This will select Domain Entity object for given ui and tenantUId
+		/// This will select Domain Entity object for given uid and tenantUId
 		/// </summary>
-		/// <param name="uid"></param>
-		/// <param name="tenantUId"></param>
+		/// <param name="uid">Unique Id of car</param>
+		/// <param name="tenantUId">Tenant UId of the user</param>
 		/// <returns></returns>
         public async Task<Car> GetEntity(string uid, string tenantUId)
         {
@@ -45,13 +45,19 @@ namespace Carwale.Domain.Repositories.CarRepository
 						   RegistrationNumber = x.RegistrationNumber,
 						   Status = x.Status,
 						   TenantUId = tenantUId,
-                           LeftCurrentVaile= x.CurrentValue - (x.CurrentValue * (DateTime.UtcNow.Year - (x.Year> DateTime.UtcNow.Year? DateTime.UtcNow.Year:x.Year)) * 5 * .01),     //5 is default dep percentage 
+                           LeftCurrentVaile= Math.Round(x.CurrentValue - (x.CurrentValue * (DateTime.UtcNow.Year - (x.Year>= DateTime.UtcNow.Year? DateTime.UtcNow.Year:x.Year)) * 5 * .01),0),     //5 is default dep percentage 
 						   Year = x.Year
 					   };
 
             return data.Where(p => p.TenantUId == tenantUId);
 		}
 
+		/// <summary>
+		/// Get all Cars for given Status and Tenant UId
+		/// </summary>
+		/// <param name="status">Status could one of EnumCarStatus value as Integer</param>
+		/// <param name="tenantUId">Tenant UId of the user</param>
+		/// <returns></returns>
 		public async Task<IEnumerable<CarDto>> GetAll(int? status, string tenantUId)
 		{			
 			var cars = await GetQueryable(tenantUId).Where(p=> (status == null || p.Status == status)).ToListAsync();
